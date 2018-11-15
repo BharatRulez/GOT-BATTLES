@@ -1,7 +1,3 @@
-/**
- * Created by vedant on 24/09/17.
- */
-
 'use strict';
 const battle = require('../models/m_battles');
 

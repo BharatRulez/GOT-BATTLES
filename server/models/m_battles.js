@@ -1,6 +1,4 @@
-/**
- * Created by vedant on 24/09/17.
- */
+
 
 const mongoose = require('mongoose');
 
