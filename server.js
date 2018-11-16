@@ -18,17 +18,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 require('./server/config/mongoose');
 const router = express.Router();
-// Setup logger
-//app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
-// Serve static assets
-//app.use(express.static(path.resolve(__dirname, '..', 'build')));
-//require('./loadCSV')(app);
-// route middleware that will happen on every request
 
 router.use((req, res, next) => {
-    // log each request to the console
-    console.log(req.method, req.url);
     next();
 });
 
@@ -40,12 +32,10 @@ app.use('/api', router);
 
 app.use('/api/battle', battle);
 
-// // API location
-// app.use('/api', api);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 //Set Port

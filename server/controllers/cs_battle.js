@@ -45,7 +45,7 @@ function getUniqueArr(arr) {
 		}
 
 	  }
-	//console.log('o is >> ', o);
+	
 	  return acc;
 
     }, []);
@@ -116,7 +116,7 @@ function getStats(response){
 		most_active.region = maxCountElm(values.regions);
 
 		let battle_types = getUniqueArr(battleTypes);
-		console.log('defenders>>>', defenderValues);
+		
 		defender_size.min = defenderValues.reduce((a, b) =>  Math.min(a, b));
 		defender_size.max = defenderValues.reduce((a, b) =>  Math.max(a, b));
 		defender_size.average = parseInt(defenderSum / defenderValues.length);
@@ -156,7 +156,7 @@ module.exports =  {
     },
     totalBattleCount(req, res){
         battle.count({}, (err, response) => {
-		console.log('total battles occured->>>', response);
+		
 		res.send({
 		    code: 1,
 		    data: response
