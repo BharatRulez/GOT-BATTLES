@@ -5,7 +5,7 @@ const http = require('http');
 const app = express();
 
 // API file for interacting with MongoDB
-const notes = require('./server/routes/rs_notes');
+
 const battle = require('./server/routes/rs_battle');
 
 // Parsers
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 });
 
 app.use('/api', router);
-app.use('/api/notes', notes);
+
 app.use('/api/battle', battle);
 
 // // API location
