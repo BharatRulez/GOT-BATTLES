@@ -3,8 +3,18 @@
  */
 
 'use strict';
+(function () {
+    const config = require('./config/config');
+    const mongoose = require("mongoose");
+    // mongoose.Promise = require("bluebird");
+    mongoose.connect(config.db, {
+	  useMongoClient: true
+    });
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+})();
 
-module.exports = function () {
+function loadCSV() {
 	const fastcsv = require('fast-csv'),
 	    BattleModel = require('./models/m_battles');
 
@@ -69,3 +79,6 @@ module.exports = function () {
     }
 
 }
+
+loadCSV();
+

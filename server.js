@@ -5,7 +5,8 @@ const http = require('http');
 const app = express();
 
 // API file for interacting with MongoDB
-const api = require('./server/routes');
+const notes = require('./server/routes/rs_notes');
+const battle = require('./server/routes/rs_battle');
 
 // Parsers
 app.use(bodyParser.json());
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 
-require('./config/mongoose');
+require('./server/config/mongoose');
 const router = express.Router();
 // Setup logger
 //app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
