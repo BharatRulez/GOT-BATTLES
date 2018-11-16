@@ -187,18 +187,30 @@ module.exports =  {
 
     },
     search(req, res){
-	console.log('req query', req.query);
-	let query = {
-	    $and : [
-		  { $or: [ { attacker_king: req.query.king} , { defender_king: req.query.king } ] },
-		  { location: req.query.location, battle_type: req.query.type }
-	    ]
-	};
-	battle.find(query, '-__v').exec().then(response => {
-	    res.send({
-		  code: 1,
-		  data: response
-	    });
-	});
+		if(req.query.king!=null && req.query.king.length!=0){
+			if((req.query.location!=null && req.query.location.length!=0)&&(req.query.type!=null && req.query.type.length!=0)){
+				let query = {
+					$or:[{attacker_king:req.query.king},{defender_king:req.query.king}],
+					location:req.query.location,
+					battle_type:req.query.type
+				}
+				battle.find(query, '-__v').exec().then(response => {
+					res.send({
+					  code: 1,
+					  data: response
+					});
+				});
+			}else{
+				let query={ 
+					$or:[{attacker_king:req.query.king},{defender_king:req.query.king}]
+				}
+				battle.find(query, '-__v').exec().then(response => {
+					res.send({
+					  code: 1,
+					  data: response
+					});
+				});
+			}
+		}
     }
 }
