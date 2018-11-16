@@ -1,31 +1,85 @@
+<nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <div class="navbar-brand text-center" >Game Of Thrones Battle </div> 
+        </div>
+        </div>
+    </nav>
 
-<div class="row">
+
+  <div class="row">
+      <div class="col-md-12">
+        <h2>Stats</h2>
+      </div>
       <div class="col-md-6">
-           <h2>Stats</h2>
-          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
-              <h3>Most Active</h3>
-              <p> <b>Attacker King</b> - {{stats.most_active.attacker_king}}</p>
-              <p> <b>Defender King</b> - {{stats.most_active.defender_king}}</p>
-              <p> <b>Region</b> - {{stats.most_active.region}}</p>
+        <div class="card border-secondary mb-4">
+          <div class="card-header">
+            Most Active
           </div>
-          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
-              <h3>Attacker Outcome</h3>
-              <p> <b>Win</b> - {{stats.attacker_outcome.wins}}</p>
-              <p> <b>Loss</b> - {{stats.attacker_outcome.loss}}</p>
-              
+          <div class="card-body">
+            <div class="list-group">
+              <ul>
+                <li> Attacker King - {{stats.most_active.attacker_king}} </li>
+                <li> Defender King - {{stats.most_active.defender_king}} </li>
+                <li> Region - {{stats.most_active.region}} </li>
+              </ul>
+            </div>
           </div>
-
-          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
-              <h3>Battle Type</h3>
-              <ul><li *ngFor="let type of stats.battle_types">{{type}}</li></ul>
-             
+        </div>
+        <div class="card border-secondary mb-4">
+          <div class="card-header">
+            Attacker Outcome
           </div>
-          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
-              <h3>Defender Size</h3>
-               <p> <b>Average</b> - {{stats.defender_size.average}}</p>
-                  <p> <b>Min</b> - {{stats.defender_size.min}}</p>
-                  <p> <b>Max</b> - {{stats.defender_size.max}}</p>
-          </div>     
+          <div class="card-body">
+            <div class="list-group-container">
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 
+                  Win 
+                  <span class="badge badge-primary badge-pill">
+                    {{stats.attacker_outcome.wins}} 
+                  </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 
+                  Loss 
+                  <span class="badge badge-danger badge-pill">
+                    {{stats.attacker_outcome.loss}} 
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card border-secondary mb-4">
+          <div class="card-header">
+            Battle Type
+          </div>
+          <div class="card-body">
+            <div class="list-group-container">
+              <ul class="list-group">
+                <li *ngFor="let type of stats.battle_types" class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="badge badge-primary badge-pill">
+                    {{type}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card border-secondary mb-4">
+          <div class="card-header">
+            Defender Size
+          </div>
+          <div class="card-body">
+            <div class="list-group">
+              <ul>
+                <li>Average - {{stats.defender_size.average}}</li>
+                <li>Min - {{stats.defender_size.min}}</li>
+                <li>Max - {{stats.defender_size.max}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
           <h2>Battles</h2>
@@ -35,9 +89,9 @@
       </div>
       <div class="col-md-6">
         <h2>
-         Count
+        Battle Count
         </h2>
-        <p>{{count}}</p>
+        <div class="card-body">{{count}}</div>
       </div>
       
   
