@@ -10,9 +10,22 @@ export class DataService {
 
   constructor(private _http: Http) { }
 
-  getUsers() {
-    return this._http.get("/api/users")
-      .map(result => this.result = result.json().data);
+  getBattleList() {
+    return this._http.get("http://13.127.163.244:3000/api/battle/list")
+      .map(result => this.result = result.json());
   }
+
+  getBattleCount(){
+    return this._http.get("http://13.127.163.244:3000/api/battle/count")
+    .map(result => this.result = result.json());
+  }
+  
+  getStats(){
+    return this._http.get("http://13.127.163.244:3000/api/battle/stats")
+    .map(result => this.result = result.json() );
+  }
+  //  search(){
+  //    return this._http.get("http://13.127.163.244:3000/api/battle/count")
+  //  }
 
 }

@@ -1,5 +1,48 @@
-<h1>Out MongoDB is working!</h1>
 
-<ul>
-  <li *ngFor="let user of users">{{ user.name }}</li>
-</ul>
+
+<div class="container" >
+  <div class="row">
+      <div class="col-md-6">
+           <h2>Stats</h2>
+          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
+              <h3>Most Active</h3>
+              <p> <b>Attacker King</b> - {{stats.most_active.attacker_king}}</p>
+              <p> <b>Defender King</b> - {{stats.most_active.defender_king}}</p>
+              <p> <b>Region</b> - {{stats.most_active.region}}</p>
+          </div>
+          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
+              <h3>Attacker Outcome</h3>
+              <p> <b>Win</b> - {{stats.attacker_outcome.wins}}</p>
+              <p> <b>Loss</b> - {{stats.attacker_outcome.loss}}</p>
+              
+          </div>
+
+          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
+              <h3>Battle Type</h3>
+              <ul><li *ngFor="let type of stats.battle_type">{{type}}</li></ul>
+              
+          </div>
+          <div class="col-md-12" style="background: rgb(238, 238, 238) none repeat scroll 0% 0%; border-radius: 10px;margin-bottom:5px">
+              <h3>Defender Size</h3>
+               <p> <b>Average</b> - {{stats.defender_size.average}}</p>
+                  <p> <b>Min</b> - {{stats.defender_size.min}}</p>
+                  <p> <b>Max</b> - {{stats.defender_size.max}}</p>
+          </div>     
+      </div>
+      <div class="col-md-6">
+          <h2>Battles</h2>
+          <ul>
+              <li *ngFor="let battle of users">{{battle}}</li>
+          </ul>
+      </div>
+      <div class="col-md-6">
+        <h2>
+         Count
+        </h2>
+        <p>{{count}}</p>
+      </div>
+      <div class="col-md-6">
+        
+      </div>
+  </div>
+</div>
